@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPP Website</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="public/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon/favicon-16x16.png">
+    <!-- css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar container-fluid">
+      <div class="navbar_wrapper">
+        <div class="navbar_logo-container">
+          <a href="./">
+            <img src="public/logo-ipp.webp" alt="Logo of Polytechnic Institute of Porto">
+          </a>
+        </div>
+
+        <!-- Mobile View -->
+        <div class="navbar_links-container-mobile">
+          <!-- Menu Icon -->
+          <div class="links_icon-container">
+            <button onclick="menuDrawer(true)">
+              <img src="public/icons/menu.svg" alt="Menu icon">
+            </button>
+          </div>
+
+          <!-- Side Menu -->
+          <div id="sideMenu" class="side-menu_container container-fluid">
+            <div class="side-menu_wrapper">
+              <div class="side_menu-navbar-wrapper">
+                <div class="navbar_logo-container">
+                  <a href="./">
+                    <img src="public/logo-ipp.webp" alt="Logo of Polytechnic Institute of Porto">
+                  </a>
+                </div>
+                <div class="side-menu_close-icon">
+                  <button onclick="menuDrawer(false)">
+                    <img src="public/icons/close.svg" alt="Close icon">
+                  </button>
+                </div>
+              </div>
+              <ul class="side-menu_links-list text-center">
+                <li class="side-menu_link-item">
+                  <a href="./">
+                    Home
+                  </a>
+                </li>
+                <li class="side-menu_link-item">
+                  <a href="cursos/">
+                    Cursos
+                  </a>
+                  <ul class="side-menu_sub-links-list">
+                    <li><a href="cursos/licenciaturas.html">Licenciaturas</a></li>
+                    <li><a href="cursos/mestrados.html">Mestrados</a></li>
+                    <li><a href="cursos/ctesp.html">CTESP</a></li>
+                    <li><a href="cursos/pos-graduacoes.html">Pós-Graduações</a></li>
+                    <li><a href="cursos/ano-zero.html">Ano Zero</a></li>
+                    <li><a href="cursos/doutoramento.html">Doutoramento</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End of Mobile View -->
+
+        <!-- Desktop View -->
+        <ul class="navbar_links-list">
+          <li class="navbar_link-item active">
+            <a href="#">
+              Home
+            </a>
+          </li>
+          <li class="navbar_link-item">
+            <a href="cursos/">
+              Cursos
+            </a>
+            <ul class="navbar_sub-links-list">
+              <li><a href="cursos/licenciaturas.html">Licenciaturas</a></li>
+              <li><a href="cursos/mestrados.html">Mestrados</a></li>
+              <li><a href="cursos/ctesp.html">CTESP</a></li>
+              <li><a href="cursos/pos-graduacoes.html">Pós-Graduações</a></li>
+              <li><a href="cursos/ano-zero.html">Ano Zero</a></li>
+              <li><a href="cursos/doutoramento.html">Doutoramento</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- End of Desktop View -->
+      </div>
+    </nav>
+    <!-- End of Navbar -->
+
+    <script src="./js/main.js"></script>
+</html>
