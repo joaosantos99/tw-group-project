@@ -43,9 +43,6 @@ body {
   overflow-x: hidden;
   padding: 0;
 }
-main {
-  padding-top: 90px;
-}
 ul {
   list-style: none;
   padding: 0;
@@ -73,6 +70,7 @@ button {
   padding-inline: 0;
   margin: 0;
   display: inline-flex;
+  cursor: pointer;
 }
 .text-center {
   text-align: center;
@@ -99,12 +97,14 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0;
 }
 h1 {
-  font: 700 2.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
   line-height: 1.1;
   letter-spacing: 0.1rem;
 }
 h2 {
-  font: 700 2rem;
+  font-weight: 700;
+  font-size: 2rem;
   line-height: 1;
   letter-spacing: 0.1rem;
 }
@@ -185,11 +185,18 @@ p {
 
 /* Navbar */
 .navbar {
-  background-color: var(--white);
-  border-bottom: 1px solid var(--primary);
   position: fixed;
   height: 80px;
   z-index: 999;
+
+  &.scrolleddown {
+    background-color: var(--seconday);
+    border-bottom: 1px solid var(--primary);
+
+    .navbar_link-item a {
+      color: var(--primary) !important;
+    }
+  }
 }
 .navbar_wrapper {
   display: flex;
@@ -260,6 +267,10 @@ p {
   }
   .navbar_link-item {
     position: relative;
+
+    a {
+      color: var(--white);
+    }
   }
   .navbar_link-item:hover > a {
     color: var(--accent);
@@ -291,4 +302,66 @@ p {
     background-color: var(--primary);
     color: var(--seconday);
   }
+}
+
+/* Hero Carousel */
+.hero-carousel {
+  height: 100vh;
+  width: fit-content;
+  position: relative;
+}
+.hero-carousel_slides-wrapper {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  transition: ease-in-out 0.5s;
+}
+.hero-carousel_slides-container {
+  height: 100%;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.hero-carousel_controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: var(--spacing-md);
+  color: #000;
+  z-index: 999;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    color: white;
+  }
+}
+/* End Hero Carousel */
+
+/* Schools */
+.schools_wrapper {
+
+  h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+.schools_slider-wrapper {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+  overflow-x: scroll;
+}
+.schools_slide-container {
+  width: fit-content;
+  border: 1px solid var(--primary);
+}
+.schools_slide-container img {
+  width: 370px;
+  max-width: 370px;
 }

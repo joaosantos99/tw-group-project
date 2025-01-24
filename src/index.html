@@ -14,14 +14,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- Preload Images -->
+    <link rel="preload" href="./public/ipp-logo.svg" as="image">
+    <link rel="preload" href="./public/ipp-logo-white.svg" as="image">
+    <link rel="preload" href="./public/icons/menu.svg" as="image">
+    <link rel="preload" href="./public/icons/menu-white.svg" as="image">
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar container-fluid">
+    <nav id="navbar" class="navbar container-fluid">
       <div class="navbar_wrapper">
         <div class="navbar_logo-container">
           <a href="./">
-            <img src="public/logo-ipp.webp" alt="Logo of Polytechnic Institute of Porto">
+            <img id="logoIpp" src="public/ipp-logo-white.svg" alt="Logo of Polytechnic Institute of Porto">
           </a>
         </div>
 
@@ -30,7 +35,7 @@
           <!-- Menu Icon -->
           <div class="links_icon-container">
             <button onclick="menuDrawer(true)">
-              <img src="public/icons/menu.svg" alt="Menu icon">
+              <img id="menuIcon" src="public/icons/menu-white.svg" alt="Menu icon">
             </button>
           </div>
 
@@ -99,6 +104,61 @@
       </div>
     </nav>
     <!-- End of Navbar -->
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Carousel -->
+      <section class="hero-carousel">
+        <div id="heroCarouselSlidesWrapper" class="hero-carousel_slides-wrapper" style="left: -100vw">
+          <div class="hero-carousel_slides-container" style="background-image: url(./public/slides/slider-01.png);"></div>
+          <div class="hero-carousel_slides-container" style="background-image: url(./public/slides/slider-02.png);"></div>
+          <div class="hero-carousel_slides-container" style="background-image: url(./public/slides/slider-03.png);"></div>
+          <div class="hero-carousel_slides-container" style="background-image: url(./public/slides/slider-04.png);"></div>
+          <div class="hero-carousel_slides-container" style="background-image: url(./public/slides/slider-05.png);"></div>
+        </div>
+        <div class="hero-carousel_controls">
+          <button onclick="prevSlide()">
+            <!-- Chevron Left Icon -->
+            <img src="public/icons/chevron-left.svg" alt="Chevron Left Icon">
+            <!-- End Chevron Left Icon -->
+          </button>
+          <button onclick="nextSlide()">
+            <!-- Chevron Right Icon -->
+            <img src="public/icons/chevron-right.svg" alt="Chevron Right Icon">
+            <!-- End Chevron Right Icon -->
+          </button>
+        </div>
+      </section>
+      <!-- End Hero Carousel -->
+
+      <!-- Schools Section -->
+      <section class="schools container-fluid">
+        <div class="schools_wrapper wrapper-spacing">
+          <h2 class="text-center">Escolas</h2>
+          <div id="schoolSliderContainer" class="schools_slider-container">
+            <div id="schoolSliderWrapper" class="schools_slider-wrapper">
+              <div class="schools_slide-container">
+                <img src="public/schools/esmad.png" alt="Escola Superior de Media Artes e Design" draggable="false">
+              </div>
+              <div class="schools_slide-container">
+                <img src="public/schools/esmad.png" alt="Escola Superior de Media Artes e Design" draggable="false">
+              </div>
+              <div class="schools_slide-container">
+                <img src="public/schools/esmad.png" alt="Escola Superior de Media Artes e Design" draggable="false">
+              </div>
+              <div class="schools_slide-container">
+                <img src="public/schools/esmad.png" alt="Escola Superior de Media Artes e Design" draggable="false">
+              </div>
+              <div class="schools_slide-container">
+                <img src="public/schools/esmad.png" alt="Escola Superior de Media Artes e Design" draggable="false">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Schools Section -->
+    </main>
+    <!-- End of Main Content -->
 
     <script src="./js/main.js"></script>
 </html>
