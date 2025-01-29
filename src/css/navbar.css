@@ -1,0 +1,165 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  height: 80px;
+  z-index: 9999;
+}
+.navbar_logo-container {
+  width: 130px;
+  margin: auto 0;
+}
+
+/* Links */
+.active > .link {
+  font-weight: 700;
+}
+.link {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to left, var(--white), var(--white));
+    bottom: 0px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+  }
+
+  &.link:hover::after {
+    transform: scaleX(1);
+  }
+}
+/* Links */
+
+/* Search */
+.search_container {
+  border: 1px solid var(--white);
+}
+.search-input {
+  background: none;
+  border: none;
+  color: var(--white);
+
+  &::placeholder {
+    color: var(--white);
+    opacity: 0.5;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+.search-icon_container {
+  width: 20px;
+  height: 20px;
+
+  img {
+    vertical-align: baseline;
+  }
+}
+/* End Search */
+
+/* Mobile Menu */
+#mobileMenuContainer {
+  margin-top: 80px;
+  border-bottom: 1px solid var(--primary);
+  transition: ease-in-out 0.5s;
+  z-index: 9998;
+
+  menu {
+    a {
+      color: var(--primary) !important;
+    }
+
+    .search_container {
+      border: 1px solid var(--primary);
+    }
+
+    .search-input {
+      color: var(--primary);
+
+      &::placeholder {
+        color: var(--primary);
+      }
+    }
+  }
+}
+
+.scrolled-down {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--primary);
+
+  a {
+    color: var(--primary) !important;
+  }
+
+  .search_container {
+    border: 1px solid var(--primary);
+  }
+
+  .search-input {
+    color: var(--primary);
+
+    &::placeholder {
+      color: var(--primary);
+    }
+  }
+
+  .link::after {
+    background: linear-gradient(to left, var(--primary), var(--primary));
+  }
+}
+
+.header_scrolled-state {
+  padding-top: 80px;
+
+  .navbar {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--primary);
+
+    a {
+      color: var(--primary) !important;
+    }
+
+    .search_container {
+      border: 1px solid var(--primary);
+    }
+
+    .search-input {
+      color: var(--primary);
+
+      &::placeholder {
+        color: var(--primary);
+      }
+    }
+
+    .link::after {
+      background: linear-gradient(to left, var(--primary), var(--primary));
+    }
+  }
+
+  .collapse-btn,
+  .dropdown-toggle {
+    color: var(--primary) !important;
+  }
+}
+
+#menuIcon {
+  width: 20px;
+}
+
+/* Dropdown */
+.dropdown {
+  .dropdown-item {
+    &:active {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+  }
+}
+/* End Dropdown */

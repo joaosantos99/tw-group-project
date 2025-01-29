@@ -1,367 +1,248 @@
 /* Variables */
 :root {
   /* Colors */
-  --primary: #C94513;
-  --seconday: #FAF7F4;
-  --accent: #8A888E;
-  --white: #FFFFFF;
+  --primary: #c94513;
+  --primary-light: #f3845a;
+  --seconday: #faf7f4;
+  --gray: #666666;
+  --gray-light: #d5d7da;
+  --white: #ffffff;
+  --black: #181d27;
 
   /* Font */
-  --font-sans-serif: "Open Sans", sans-serif;
-
-  /* Container Width */
-  --container-sm: 540px;
-  --container-md: 720px;
-  --container-lg: 960px;
-  --container-xl: 1140px;
-
-  /* Spacing */
-  --spacing-xs: 0.75rem; /* 12px */
-  --spacing-sm: 1rem; /* 16px */
-  --spacing-md: 1.5rem; /* 24px */
-  --spacing-lg: 2rem; /* 32px */
-  --spacing-xl: 3rem; /* 48px */
-  --spacing-xxl: 4rem; /* 64px */
-
-  /* Border radius */
-  --border-radius-xs: 0.5rem; /* 8px */
-  --border-radius-rounded: 9999px;
+  --font-sans-serif: "Inter", sans-serif;
 }
+/* End Variables*/
 
 /* Base styling & Resets */
 * {
-  color: var(--primary);
   font: 400 1rem var(--font-sans-serif);
+  color: var(--black);
 }
-html {
-  font-size: 16px;
+
+main {
+  min-height: calc(100vh - 80px - 445px);
 }
-body {
-  background-color: var(--seconday);
-  box-sizing: border-box;
-  margin: 0;
-  overflow-x: hidden;
-  padding: 0;
-}
-ul {
+
+ul,
+ol,
+li {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: bottom;
-}
-b {
-  font-weight: 700 !important;
-}
-a {
-  text-decoration: none;
-}
-a:hover {
-  color: var(--accent);
-}
+
 button {
   background: none;
   border: none;
   padding: 0;
-  padding-block: 0;
-  padding-inline: 0;
-  margin: 0;
-  display: inline-flex;
-  cursor: pointer;
-}
-.text-center {
-  text-align: center;
-}
-.text-left {
-  text-align: left;
-}
-.wrapper-spacing {
-  padding: var(--spacing-xl) 0;
-}
-.separator {
-  border-bottom: 1px solid var(--primary);
-}
-@media (min-width: 768px) {
-  .text-left-md {
-    text-align: left;
-  }
 }
 
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+/* End Base styling & Resets */
 
-/* Typography */
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0;
+/* Form */
+textarea.form-control {
+  resize: none;
+  height: 150px;
 }
-h1 {
-  font-weight: 700;
-  font-size: 2.5rem;
-  line-height: 1.1;
-  letter-spacing: 0.1rem;
-}
-h2 {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 1;
-  letter-spacing: 0.1rem;
-}
-h3 {
-  font: 700 1.5rem;
-  line-height: 1;
-}
-h5 {
-  font: 500 1.25rem ;
-  line-height: 1;
-}
-p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-@media (min-width: 992px) {
-  h1 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
-  p {
-    line-height: 1.75;
+.form-control {
+  &:focus {
+    border-color: var(--primary);
+    box-shadow: none;
   }
 }
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 4rem;
-    letter-spacing: 0.15rem;
-  }
-}
+.btn {
+  background-color: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary-light);
 
-/* Grid System */
-.container {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0 var(--spacing-sm);
-  margin: 0 auto;
-}
-.container-fluid {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0 var(--spacing-sm);
-}
-@media (min-width: 576px) {
-  .container {
-    width: var(--container-sm);
+  &:hover {
+    background-color: var(--primary-light);
+    color: var(--white);
   }
-  .container-fluid {
-    padding: 0 calc((100vw - var(--container-sm) + var(--spacing-lg)) / 2);
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    width: var(--container-md);
-  }
-  .container-fluid {
-    padding: 0 calc((100vw - var(--container-md) + var(--spacing-lg)) / 2);
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: var(--container-lg);
-  }
-  .container-fluid {
-    padding: 0 calc((100vw - var(--container-lg) + var(--spacing-lg)) / 2);
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: var(--container-xl);
-  }
-  .container-fluid {
-    padding: 0 calc((100vw - var(--container-xl) + var(--spacing-lg)) / 2);
-  }
-}
 
-/* Navbar */
-.navbar {
-  position: fixed;
-  height: 80px;
-  z-index: 999;
-
-  &.scrolleddown {
-    background-color: var(--seconday);
-    border-bottom: 1px solid var(--primary);
-
-    .navbar_link-item a {
-      color: var(--primary) !important;
-    }
+  &:active {
+    background-color: var(--primary-light) !important;
+    color: var(--white) !important;
+    border: 1px solid var(--primary-light) !important;
+    opacity: 50%;
   }
 }
-.navbar_wrapper {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-}
-.navbar_logo-container {
-  width: 130px;
-  margin: auto 0;
-}
-.navbar_link-list {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-}
-.navbar_links-container-mobile {
-  display: flex;
-  align-items: center;
-}
-.links_icon-container {
-  display: flex;
-  cursor: pointer;
-}
-.side-menu_container {
-  position: absolute;
-  top: 0;
-  left: -100vw;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--seconday);
-  transition: ease-in-out 0.5s left;
-}
-.side_menu-navbar-wrapper {
-  align-items: center;
-  display: flex;
-  height: 80px;
-  justify-content: space-between;
-}
-.side-menu_links-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md) 0 0;
-}
-.side-menu_link-item a {
-  font: 500 1.75rem;
-}
-.side-menu_sub-links-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-xs) 0 0;
-}
-.side-menu_link-item .side-menu_sub-links-list a {
-  font: 400 1.25rem;
-}
-.navbar_links-list {
-  display: none;
-}
-@media (min-width: 768px) {
-  .navbar_links-container-mobile {
-    display: none;
-  }
-  .navbar_links-list {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-  }
-  .navbar_link-item {
-    position: relative;
-
-    a {
-      color: var(--white);
-    }
-  }
-  .navbar_link-item:hover > a {
-    color: var(--accent);
-  }
-  .navbar_link-item.active a {
-    font-weight: 700;
-  }
-  .navbar_sub-links-list {
-    display: none;
-    background-color: var(--seconday);
-    border: 1px solid var(--primary);
-    border-radius: var(--border-radius-xs);
-    position: absolute;
-    top: 22px;
-  }
-  .navbar_link-item:hover .navbar_sub-links-list {
-    display: block;
-  }
-  .navbar_sub-links-list li {
-    cursor: pointer;
-  }
-  .navbar_sub-links-list a {
-    display: block;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    text-align: center;
-    transition: ease-in-out 0.2s;
-  }
-  .navbar_sub-links-list a:hover {
-    background-color: var(--primary);
-    color: var(--seconday);
-  }
-}
+/* End Form */
 
 /* Hero Carousel */
-.hero-carousel {
-  height: 100vh;
-  width: fit-content;
-  position: relative;
-}
-.hero-carousel_slides-wrapper {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  transition: ease-in-out 0.5s;
-}
-.hero-carousel_slides-container {
-  height: 100%;
-  width: 100vw;
+.hero-carousel_slide {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .hero-carousel_controls {
-  position: absolute;
-  top: 50%;
   transform: translateY(-50%);
-  gap: var(--spacing-md);
-  color: #000;
   z-index: 999;
-  width: 100vw;
   box-sizing: border-box;
-  padding: 0 var(--spacing-md);
-  display: flex;
-  justify-content: space-between;
 
   button {
-    color: white;
+    background: none;
+    border: none;
   }
 }
 /* End Hero Carousel */
 
-/* Schools */
-.schools_wrapper {
+/* Course Card */
+.course_card {
+  border-radius: 12px;
+  transition: 0.2s ease-out;
+  border: 1px solid var(--gray-light);
 
-  h2 {
-    margin-bottom: var(--spacing-lg);
+  &:hover {
+    border: 1px solid var(--primary);
+  }
+
+  img {
+    border-radius: 7px;
+  }
+
+  h5 {
+    /* Ellipsis text on 1 line */
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  p {
+    /* Ellipsis text on 4 lines */
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
 }
-.schools_slider-wrapper {
-  display: flex;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md) 0;
-  overflow-x: scroll;
+/* End Course Card */
+
+/* Deegree Card */
+.course-card {
+  border: 1px solid #b64926;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+
+  span {
+    color: #b64926;
+    font-size: 4rem;
+  }
+
+  p {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 24px;
+  }
+
+  .school-card {
+    border: 1px solid #b64926;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .btn {
+    border: 1px solid #b64926;
+    color: #b64926;
+    background-color: var(--white);
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+
+    &:hover {
+      background-color: #b64926;
+      color: #fff;
+    }
+  }
 }
-.schools_slide-container {
-  width: fit-content;
+/* End Deegre Card*/
+
+/* Course Details */
+.course-title_container {
+  background: url("/public/courses/fotografia.png") no-repeat center center;
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  h1 {
+    padding: 200px 0;
+    color: var(--white);
+  }
+}
+.btn.toggle {
+  background-color: var(--white);
+  color: var(--primary);
   border: 1px solid var(--primary);
+
+  &:hover {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+
+  &.active {
+    background-color: var(--primary);
+    color: var(--white);
+  }
 }
-.schools_slide-container img {
-  width: 370px;
-  max-width: 370px;
+.study-plan_table {
+  width: 100%;
+  * {
+    border: 1px solid var(--gray-light);
+  }
+
+  thead {
+    tr {
+      th {
+        background-color: #d5d7da50;
+        padding: 0.5rem;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        --bs-table-bg: #d5d7da25;
+      }
+      &:nth-child(even) {
+        --bs-table-bg: #d5d7da50;
+      }
+
+      td {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
+/* End Course Details */
+
+/* Extended Bootstrap Classes */
+.fs-7 {
+  font-size: 0.875rem;
+}
+.transition-ease-in-out {
+  transition: ease-in-out 0.5s;
+}
+.highlight {
+  color: var(--primary);
+}
+.tone-deaf {
+  color: var(--gray);
+}
+.w-fit-content {
+  width: fit-content;
 }

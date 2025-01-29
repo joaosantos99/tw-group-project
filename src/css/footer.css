@@ -1,0 +1,35 @@
+.footer {
+  background-color: var(--white);
+  border-top: 1px solid var(--primary);
+
+  /* IPP Logo */
+  img {
+    max-width: 200px;
+  }
+
+  h5 {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--gray);
+  }
+
+  a {
+    color: var(--gray);
+    transition: 0.3s ease-in;
+    &:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+  }
+}
+.footer-bottom {
+  border-top: 1px solid var(--primary);
+  margin-top: 40px;
+  padding-top: 40px;
+  color: #B64926;
+}
