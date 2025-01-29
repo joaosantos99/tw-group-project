@@ -1,32 +1,4 @@
-const menuDrawer = (isOpening) => {
-  const sideMenu = document.getElementById("sideMenu")
-
-  if (isOpening) {
-    sideMenu.style.left = "0";
-  } else {
-    sideMenu.style.left = "-100vw";
-  }
-};
-
-
-const navbar = document.getElementById("navbar");
-const logoIpp = document.getElementById("logoIpp");
-const menuIcon = document.getElementById("menuIcon");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 90) {
-    navbar.className = "navbar container-fluid scrolleddown"
-    logoIpp.src = "./public/ipp-logo.svg"
-    menuIcon.src = "./public/icons/menu.svg"
-  } else {
-    navbar.className = "navbar container-fluid"
-    logoIpp.src = "./public/ipp-logo-white.svg"
-    menuIcon.src = "./public/icons/menu-white.svg"
-  }
-});
-
-
-const heroCarousel =  document.getElementById("heroCarouselSlidesWrapper");
+const heroCarousel = document.getElementById("heroCarouselContainer");
 const firstSlide = heroCarousel.firstElementChild;
 const lastSlide = heroCarousel.lastElementChild;
 const slideCount = heroCarousel.childElementCount;
@@ -71,7 +43,3 @@ const nextSlide = async () => {
     heroCarousel.style.left = `${newPosition}vw`;
   }
 }
-
-
-const schoolSliderWrapper = document.getElementById("schoolSliderWrapper");
-const schoolSliderContainer = document.getElementById("schoolSliderContainer");
