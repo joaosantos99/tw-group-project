@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPP - Contactos</title>
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/public/favicon/favicon-16x16.png"
+    />
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Preload Images -->
+    <link rel="preload" href="/public/ipp-logo.svg" as="image" />
+    <link rel="preload" href="/public/icons/menu.svg" as="image" />
+    <link rel="preload" href="/public/icons/search.svg" as="image" />
+  </head>
+  <body class="header_scrolled-state">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar w-100">
+      <div class="container">
+        <div class="navbar_logo-container">
+          <a href="./">
+            <img
+              id="logoIpp"
+              class="img-fluid"
+              src="/public/ipp-logo.svg"
+              alt="Logo of Polytechnic Institute of Porto"
+            />
+          </a>
+        </div>
+        <!-- Desktop View -->
+        <ul class="d-none d-md-flex align-items-center gap-4">
+          <li>
+            <a class="link text-white" href="/"> Inicio </a>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button
+                class="dropdown-toggle text-white"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Cursos
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="/cursos/licenciaturas/">
+                    Licenciaturas
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/cursos/mestrados/">
+                    Mestrado
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/cursos/ctesp/">CTESP</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/cursos/pos-graduacoes/">
+                    Pós-Graduações
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/cursos/doutoramentos/">
+                    Doutoramentos
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button
+                class="dropdown-toggle text-white"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Escolas
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="/escolas/esmad.html">
+                    ESMAD
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/escolas/ess.html"> ESS </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/escolas/esht.html">ESHT</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="active">
+            <a class="link text-white" href="/contactos.html"> Contactos </a>
+          </li>
+          <li>
+            <form
+              class="search_container d-flex align-items-center rounded-pill px-4 py-2"
+              action="/cursos/resultados.html"
+            >
+              <input
+                class="search-input"
+                type="text"
+                name="q"
+                placeholder="Pesquisar por cursos"
+              />
+              <input type="submit" hidden />
+              <button type="submit" class="search-icon_container">
+                <img
+                  id="searchIcon"
+                  class="img-fluid"
+                  src="/public/icons/search-white.svg"
+                  alt="Search Icon"
+                />
+              </button>
+            </form>
+          </li>
+        </ul>
+        <!-- End of Desktop View -->
+        <!-- Mobile View -->
+        <div class="d-md-none">
+          <button class="menu-icon" onclick="toggleMenu()">
+            <img
+              id="menuIcon"
+              class="img-fluid"
+              src="/public/icons/menu-white.svg"
+              alt="Menu Icon"
+            />
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div
+      id="mobileMenuContainer"
+      class="d-md-none container-fluid px-4 position-fixed start-0 bg-white"
+      style="top: -350px"
+    >
+      <menu class="d-flex flex-column py-4 gap-4">
+        <li class="active">
+          <a class="link" href="/"> Inicio </a>
+        </li>
+        <li>
+          <button
+            class="collapse-btn"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse"
+            aria-expanded="false"
+            aria-controls="collapse"
+          >
+            Cursos
+          </button>
+          <div class="collapse mx-3 mt-2" id="collapse">
+            <a class="link mb-2" href="/cursos/licenciaturas/">Licenciaturas</a>
+            <br />
+            <a class="link mb-2" href="/cursos/mestrados/">Mestrados</a>
+            <br />
+            <a class="link mb-2" href="/cursos/mestrados/">CTESP</a>
+            <br />
+            <a class="link mb-2" href="/cursos/pos-graduacoes/">
+              Pos-Graduações
+            </a>
+            <br />
+            <a class="link mb-2" href="/cursos/doutoramentos/">Doutoramentos</a>
+          </div>
+        </li>
+        <li>
+          <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSchools"
+            aria-expanded="false"
+            aria-controls="collapse"
+          >
+            Escolas
+          </button>
+          <div class="collapse mx-3 mt-2" id="collapseSchools">
+            <a class="link mb-2" href="/escolas/esmad.html">ESMAD</a>
+            <br />
+            <a class="link mb-2" href="/escolas/ess.html">ESS</a>
+            <br />
+            <a class="link mb-2" href="/escolas/esht.html">ESHT</a>
+            <br />
+          </div>
+        </li>
+        <li class="active">
+          <a class="link text-white" href="/contactos.html"> Contactos </a>
+        </li>
+        <li>
+          <form
+            class="search_container d-flex justify-content-between align-items-center rounded-pill px-4 py-2"
+            onsubmit=""
+          >
+            <input
+              class="search-input w-100"
+              type="text"
+              placeholder="Pesquisar por cursos"
+            />
+            <button type="submit" class="search-icon_container">
+              <img
+                id="searchIcon"
+                class="img-fluid"
+                src="/public/icons/search.svg"
+                alt="Search Icon"
+              />
+            </button>
+          </form>
+        </li>
+      </menu>
+    </div>
+    <!-- End of Navbar -->
+
+    <!-- Main Content -->
+    <main>
+      <div class="container py-5">
+        <div class="row gap-4 mb-4">
+          <h1 class="text-center fs-1 fw-medium highlight">Contactos</h1>
+          <h3 class="text-center fs-5 fw-normal tone-deaf">
+            Preencha o formulário abaixo para entrar em contacto connosco.
+          </h3>
+        </div>
+        <form
+          action="/sucesso.html"
+          class="form row flex-column align-items-center gap-3"
+        >
+          <div class="col-md-8 col-lg-6">
+            <label for="name" class="form-label">Nome</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Jonh Doe"
+              required
+            />
+          </div>
+          <div class="col-md-8 col-lg-6">
+            <label for="name" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="example@email.com"
+              required
+            />
+          </div>
+          <div class="col-md-8 col-lg-6">
+            <label for="name" class="form-label">Mensagem</label>
+            <textarea
+              class="form-control"
+              id="mensagem"
+              name="mensagem"
+              placeholder="Mensagem aqui..."
+              required
+            ></textarea>
+          </div>
+          <div class="col-md-8 col-lg-6">
+            <label for="name" class="form-label">Escola</label>
+            <select class="form-select" id="escola" name="escola" required>
+              <option value="esmad">ESMAD</option>
+              <option value="ess">ESS</option>
+              <option value="esht">ESHT</option>
+            </select>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <button type="submit" class="btn w-100">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-5">
+      <div class="container">
+        <div class="row text-center text-md-start gap-4 gap-md-0">
+          <div class="col-md-3">
+            <img
+              class="img-fluid w-100"
+              src="/public/ipp-logo.svg"
+              alt="P.PORTO Logo"
+              class="mb-3"
+            />
+          </div>
+          <div class="col-md-3">
+            <div>
+              <h5 class="pb-1">Morada</h5>
+              <p>
+                Rua D. Sancho I, n.º 981<br />4480-876 Vila do Conde Portugal
+              </p>
+            </div>
+            <div>
+              <h5 class="pb-1">Telefone</h5>
+              <p>+351 252 291 700</p>
+            </div>
+            <div>
+              <h5 class="pb-1">Email</h5>
+              <p>geral@esmad.ipp.pt</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5 class="pb-1">Menu</h5>
+            <ul class="d-flex flex-column gap-2">
+              <li><a href="#">Cursos</a></li>
+              <li><a href="#">Estudantes</a></li>
+              <li><a href="/contactos.html">Contactos</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="pb-1">Redes Sociais</h5>
+            <ul class="d-flex flex-column gap-2">
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Linkedin</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="mb-0">Copyright © 2025. All Rights Reserved.</p>
+          <a class="text-end" href="/politica-de-privacidade.html"
+            >Política de Privacidade</a
+          >
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- End of Main Content -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/toogle.js"></script>
+  </body>
+</html>
