@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPP - Licenciatura em Fotografia</title>
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/public/favicon/favicon-16x16.png"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <!-- CSSs -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Preload Images -->
+    <link rel="preload" href="/public/ipp-logo.svg" as="image" />
+    <link rel="preload" href="/public/ipp-logo-white.svg" as="image" />
+    <link rel="preload" href="/public/icons/menu.svg" as="image" />
+    <link rel="preload" href="/public/icons/menu-white.svg" as="image" />
+    <link rel="preload" href="/public/icons/search.svg" as="image" />
+    <link rel="preload" href="/public/icons/search-white.svg" as="image" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar w-100">
+      <div class="container">
+        <div class="navbar_logo-container">
+          <a href="./">
+            <img
+              id="logoIpp"
+              class="img-fluid"
+              src="/public/ipp-logo-white.svg"
+              alt="Logo of Polytechnic Institute of Porto"
+            />
+          </a>
+        </div>
+        <!-- Desktop View -->
+        <ul class="d-none d-md-flex align-items-center gap-4">
+          <li>
+            <a class="link text-white" href="/"> Inicio </a>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button
+                class="dropdown-toggle text-white"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Cursos
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="/cursos/licenciaturas/">
+                    Licenciaturas
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/cursos/mestrados/">
+                    Mestrado
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/cursos/ctesp/">CTESP</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/cursos/pos-graduacoes/">
+                    Pós-Graduações
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/cursos/doutoramentos/">
+                    Doutoramentos
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button
+                class="dropdown-toggle text-white"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Escolas
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="/escolas/esmad.html">
+                    ESMAD
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/escolas/ess.html"> ESS </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/escolas/esht.html">ESHT</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a class="link text-white" href="/contactos.html"> Contactos </a>
+          </li>
+          <li>
+            <form
+              class="search_container d-flex align-items-center rounded-pill px-4 py-2"
+              action="/cursos/resultados.html"
+            >
+              <input
+                class="search-input"
+                type="text"
+                name="q"
+                placeholder="Pesquisar por cursos"
+              />
+              <input type="submit" hidden />
+              <button type="submit" class="search-icon_container">
+                <img
+                  id="searchIcon"
+                  class="img-fluid"
+                  src="/public/icons/search-white.svg"
+                  alt="Search Icon"
+                />
+              </button>
+            </form>
+          </li>
+        </ul>
+        <!-- End of Desktop View -->
+        <!-- Mobile View -->
+        <div class="d-md-none">
+          <button class="menu-icon" onclick="toggleMenu()">
+            <img
+              id="menuIcon"
+              class="img-fluid"
+              src="/public/icons/menu-white.svg"
+              alt="Menu Icon"
+            />
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div
+      id="mobileMenuContainer"
+      class="d-md-none container-fluid px-4 position-fixed start-0 bg-white"
+      style="top: -350px"
+    >
+      <menu class="d-flex flex-column py-4 gap-4">
+        <li class="active">
+          <a class="link" href="/"> Inicio </a>
+        </li>
+        <li>
+          <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse"
+            aria-expanded="false"
+            aria-controls="collapse"
+          >
+            Cursos
+          </button>
+          <div class="collapse mx-3 mt-2" id="collapse">
+            <a class="link mb-2" href="/cursos/licenciaturas/">Licenciaturas</a>
+            <br />
+            <a class="link mb-2" href="/cursos/mestrados/">Mestrados</a>
+            <br />
+            <a class="link mb-2" href="/cursos/mestrados/">CTESP</a>
+            <br />
+            <a class="link mb-2" href="/cursos/pos-graduacoes/">
+              Pos-Graduações
+            </a>
+            <br />
+            <a class="link mb-2" href="/cursos/doutoramentos/">Doutoramentos</a>
+          </div>
+        </li>
+        <li>
+          <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSchools"
+            aria-expanded="false"
+            aria-controls="collapse"
+          >
+            Escolas
+          </button>
+          <div class="collapse mx-3 mt-2" id="collapseSchools">
+            <a class="link mb-2" href="/escolas/esmad.html">ESMAD</a>
+            <br />
+            <a class="link mb-2" href="/escolas/ess.html">ESS</a>
+            <br />
+            <a class="link mb-2" href="/escolas/esht.html">ESHT</a>
+            <br />
+          </div>
+        </li>
+        <li>
+          <a class="link text-white" href="/contactos.html"> Contactos </a>
+        </li>
+        <li>
+          <form
+            class="search_container d-flex justify-content-between align-items-center rounded-pill px-4 py-2"
+            onsubmit=""
+          >
+            <input
+              class="search-input w-100"
+              type="text"
+              placeholder="Pesquisar por cursos"
+            />
+            <button type="submit" class="search-icon_container">
+              <img
+                id="searchIcon"
+                class="img-fluid"
+                src="/public/icons/search.svg"
+                alt="Search Icon"
+              />
+            </button>
+          </form>
+        </li>
+      </menu>
+    </div>
+    <!-- End of Navbar -->
+
+    <main>
+      <div class="container">
+        <div class="course-title_container vw-100">
+          <h1 class="text-center fs-1 fw-medium highlight mb-4">
+            Mestrado em Fotografia
+          </h1>
+        </div>
+        <!-- Toogle Buttons -->
+        <div class="row flex-row justify-content-center gap-4 pt-3 pb-4">
+          <!-- Presentation Button -->
+          <div class="w-fit-content p-0">
+            <button
+              id="presentationBtn"
+              onclick="toogleSection('presentation')"
+              class="btn toggle py-2 px-5 fs-7 active"
+            >
+              Apresentação
+            </button>
+          </div>
+          <!-- End Presentation Button -->
+          <!-- Study Plan -->
+          <div class="w-fit-content p-0">
+            <button
+              onclick="toogleSection('studyPlan')"
+              id="studyPlanBtn"
+              class="btn py-2 px-5 fs-7 toggle"
+            >
+              Plano de Estudos
+            </button>
+          </div>
+          <!-- End Study Plan -->
+          <!-- Professional Paths -->
+          <div class="w-fit-content p-0">
+            <button
+              onclick="toogleSection('profesionalPaths')"
+              id="profesionalPathsBtn"
+              class="btn py-2 px-5 fs-7 toggle"
+            >
+              Saídas Prof.
+            </button>
+          </div>
+          <!-- End Professional Paths -->
+          <!-- Access -->
+          <div class="w-fit-content p-0">
+            <button
+              onclick="toogleSection('access')"
+              id="accessBtn"
+              class="btn py-2 px-5 fs-7 toggle"
+            >
+              Accesso
+            </button>
+          </div>
+          <!-- End Access -->
+          <!-- More Info -->
+          <div class="w-fit-content p-0">
+            <button
+              onclick="toogleSection('moreInfo')"
+              id="moreInfoBtn"
+              class="btn py-2 px-5 fs-7 toggle"
+            >
+              + Info
+            </button>
+          </div>
+          <!-- End More Info -->
+        </div>
+        <!-- End Toogle Buttons -->
+        <!-- Presentation Section -->
+        <section id="presentation" class="row g-5">
+          <div class="col-md-6">
+            <p class="fs-6 lh-base tone-deaf">
+              O ciclo de estudos em Fotografia visa a formação qualificada de
+              artistas e fotógrafos dotados de competências e capacidade crítica
+              para desenvolver o discurso fotográfico nas suas diversas
+              vertentes, tanto profissionais como autorais. Nesse sentido
+              aposta-se numa forte componente prática que possibilita a
+              aquisição de competências técnicas e incentiva a experimentação e
+              o desenvolvimento autoral. A componente teórica visa desenvolver a
+              capacidades discursivas e críticas, bem como uma consciência
+              histórica e política, que incentive nos estudantes uma prática
+              inovadora e desafiante. Face às rápidas e sucessivas
+              transformações no domínio da imagem e, por conseguinte, nos
+              paradigmas da fotografia, o curso apresenta um leque alargado de
+              unidades curriculares que possibilitam a transdisciplinaridade
+              entre a fotografia e áreas que permitem a exploração de outros
+              “media” e formatos que são fundamentais para um discurso
+              fotográfico contemporâneo suportado pelo imprescindível apoio
+              técnico e por infraestruturas e equipamentos de elevada qualidade.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <h5 class="pb-1 fs-6 fw-medium highlight">Regime de estudos</h5>
+              <p class="tone-deaf">Diurno</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="pb-1 fs-6 fw-medium highlight">
+                Coordenador/Diretor de curso
+              </h5>
+              <p class="tone-deaf">Cesário Manuel Ferreira Alves</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="pb-1 fs-6 fw-medium highlight">
+                Acreditação do ciclo de estudos
+              </h5>
+              <p class="tone-deaf">Acreditado por: 6 ano(s) em 23/05/2018</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="pb-1 fs-6 fw-medium highlight">Área CNAEF:</h5>
+              <p class="tone-deaf">213 Áudio-visuais e produção dos media</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="pb-1 fs-6 fw-medium highlight">Registo DGES</h5>
+              <p class="tone-deaf">
+                Número: R/A-Cr 49/2018 de 05-06-2018<br />Data: 01/01/2001
+              </p>
+            </div>
+            <div class="mb-3">
+              <h5 class="pb-1 fs-6 fw-medium highlight">
+                Publicação em Diário da República
+              </h5>
+              <p class="tone-deaf">
+                N.º Despacho/Portaria: Despacho n.º 6733/2018 (2.ª Série), n.º
+                131<br />Data: 10/07/2018
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- End Presentation Section -->
+        <!-- Study Plan -->
+        <section
+          id="studyPlan"
+          class="row justify-content-center"
+          style="display: none"
+        >
+          <div class="col-md-0 col-lg-6">
+            <!-- First Year -->
+            <table class="table study-plan_table text-center">
+              <thead>
+                <tr>
+                  <th scope="row" colspan="3">1º Ano</th>
+                </tr>
+                <tr>
+                  <th scope="col">Unidade curricular</th>
+                  <th scope="col">Período</th>
+                  <th scope="col">ECTS</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Antropologia Visual</td>
+                  <td>1º Semestre</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Fotografia I</td>
+                  <td>1º Semestre</td>
+                  <td>6</td>
+                </tr>
+                <tr>
+                  <td>História da Fotografia</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Laboratório Analógico</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Práticas de Estúdio I</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Teoria e História da Arte</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Conservação e Arquivo</td>
+                  <td>2º Semestre</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Laboratório de Impressão</td>
+                  <td>2º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Narrativas Fotográficas</td>
+                  <td>2º Semestre</td>
+                  <td>6</td>
+                </tr>
+                <tr>
+                  <td>Práticas de Estúdio II</td>
+                  <td>2º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Som e Imagem</td>
+                  <td>2º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Teoria e Análise da Imagem</td>
+                  <td>2º Semestre</td>
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- End First Year -->
+            <!-- Second Year -->
+            <table class="table study-plan_table text-center">
+              <thead>
+                <tr>
+                  <th scope="row" colspan="3">2º Ano</th>
+                </tr>
+                <tr>
+                  <th scope="col">Unidade curricular</th>
+                  <th scope="col">Período</th>
+                  <th scope="col">ECTS</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Fotografia Contemporânea</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Fotografia II</td>
+                  <td>1º Semestre</td>
+                  <td>6</td>
+                </tr>
+                <tr>
+                  <td>Gestão da Carreira</td>
+                  <td>1º Semestre</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Laboratório Digital I</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Laboratório Digital I</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Publicação e Divulgação em Media Digitais</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Introdução à Realização</td>
+                  <td>2º Semestre</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Produção</td>
+                  <td>2º Semestre</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Análise de Filmes</td>
+                  <td>2º Semestre</td>
+                  <td>6</td>
+                </tr>
+                <tr>
+                  <td>Vídeo</td>
+                  <td>2º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Design de Comunicação</td>
+                  <td>2º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Ensaio Fotográfico</td>
+                  <td>2º Semestre</td>
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- End Second Year -->
+            <!-- Third Year -->
+            <table class="table study-plan_table text-center">
+              <thead>
+                <tr>
+                  <th scope="row" colspan="3">3º Ano</th>
+                </tr>
+                <tr>
+                  <th scope="col">Unidade curricular</th>
+                  <th scope="col">Período</th>
+                  <th scope="col">ECTS</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Fotografia Expandida</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Fotografia III</td>
+                  <td>1º Semestre</td>
+                  <td>6</td>
+                </tr>
+                <tr>
+                  <td>Laboratório Digital II</td>
+                  <td>1º Semestre</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Planeamento e Gestão de Projetos</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Seminários II</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Videoarte e Cinema Experimental</td>
+                  <td>1º Semestre</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Estágio</td>
+                  <td>2º Semestre</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td>Direcção de Fotografia</td>
+                  <td>2º Semestre</td>
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- End Third Year -->
+          </div>
+        </section>
+        <!-- End Study Plan -->
+        <!-- Professional Path -->
+        <section
+          id="profesionalPaths"
+          class="row justify-content-center"
+          style="display: none"
+        >
+          <div class="col-md-6">
+            <p class="lh-base tone-deaf">
+              O diplomado terá competências profissionais nas diversas áreas do
+              cinema e fotografia: realizadores, produtores, diretores de
+              fotografia, diretores de som, editores, técnicos dos diferentes
+              departamentos do audiovisual no cinema, na televisão e na
+              publicidade fotógrafos, consultores e editores de imagem,
+              profissionais de gabinetes de imagem investigadores e docentes nas
+              áreas da comunicação audiovisual, cinema, fotografia e estética.
+            </p>
+          </div>
+        </section>
+        <!-- End Professional Path -->
+        <!-- Access -->
+        <section
+          id="access"
+          class="row justify-content-center"
+          style="display: none"
+        >
+          <div class="col-md-6">
+            <p class="lh-base tone-deaf pb-4">
+              Duas provas de Ingresso: (11) História e (18) Português; (06)
+              Filosofia e (18) Português; (12) História da Cultura e das Artes e
+              (18) Português. Condições Mínimas: Nota de Candidatura - 95
+              pontos; Provas de Ingresso: 95 pontos; Nota: A informação
+              disponibilizada nesta página não dispensa a consulta do Website de
+              acesso ao ensino superior do Ministério da Ciência, Tecnologia e
+              Ensino Superior -
+              <a href="http://www.dges.gov.pt/pt" target="_blank"
+                >http://www.dges.gov.pt/pt</a
+              >
+            </p>
+            <p class="lh-base tone-deaf">
+              <b class="highlight">Nota</b>: A informação disponibilizada nesta
+              página não dispensa a consulta do Website de acesso ao ensino
+              superior do Ministério da Ciência, Tecnologia e Ensino Superior -
+              <a href="http://www.dges.gov.pt/pt" target="_blank"
+                >http://www.dges.gov.pt/pt</a
+              >
+            </p>
+          </div>
+        </section>
+        <!-- End Access -->
+        <!-- More Info -->
+        <section
+          id="moreInfo"
+          class="row justify-content-center"
+          style="display: none"
+        >
+          <div class="col-md-6">
+            <div class="mb-3">
+              <h5 class="pb-1 fs-6 fw-medium highlight">
+                Valor das propinas no ano letivo 2024/25:
+              </h5>
+              <p class="tone-deaf lh-base">
+                Estudante nacional — 697,00€/ano<br />
+                Estudante internacional — 5,000€/ano
+              </p>
+            </div>
+            <div class="mb-3">
+              <h5 class="pb-1 fs-6 fw-medium highlight">
+                Pagamento de Propinas:
+              </h5>
+              <p class="tone-deaf">
+                Numa única prestação no ato da inscrição/matrícula ou em 10
+                prestações (10%).
+              </p>
+            </div>
+            <p></p>
+          </div>
+        </section>
+        <!-- End More Info -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-5">
+      <div class="container">
+        <div class="row text-center text-md-start gap-4 gap-md-0">
+          <div class="col-md-3">
+            <img
+              class="img-fluid w-100"
+              src="/public/ipp-logo.svg"
+              alt="P.PORTO Logo"
+              class="mb-3"
+            />
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <h5 class="pb-1">Morada</h5>
+              <p>
+                Rua D. Sancho I, n.º 981<br />4480-876 Vila do Conde Portugal
+              </p>
+            </div>
+            <div class="mb-3">
+              <h5 class="pb-1">Telefone</h5>
+              <p>+351 252 291 700</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="pb-1">Email</h5>
+              <p>geral@esmad.ipp.pt</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5 class="pb-1">Menu</h5>
+            <ul class="d-flex flex-column gap-2">
+              <li><a href="#">Cursos</a></li>
+              <li><a href="#">Estudantes</a></li>
+              <li><a href="/contactos.html">Contactos</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="pb-1">Redes Sociais</h5>
+            <ul class="d-flex flex-column gap-2">
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Linkedin</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="mb-0">Copyright © 2025. All Rights Reserved.</p>
+          <a class="text-end" href="/politica-de-privacidade.html"
+            >Política de Privacidade</a
+          >
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/toogle.js"></script>
+    <script src="/js/course-details.js"></script>
+    <script src="/js/navbar-scroll.js"></script>
+  </body>
+</html>
